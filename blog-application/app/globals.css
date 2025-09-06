@@ -1,26 +1,158 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Baskervville:ital,wght@0,400..700;1,400..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  min-height: 100vh;
+  color: #1e293b;
+  gap: 14px;
+}
+
+header,
+main,
+footer {
+  max-width: 800px;
+  margin: 20 auto;
+  width: 100%;
+}
+
+header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: black;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header {
+  padding: 14px 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.postsContainer {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: -50px;
+}
+
+.postCard {
+  padding: 14px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border-radius: 14px;
+  height: 100%;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.postCard h3,
+.postCard h5 {
+  font-family: 'Bad Script', cursive;
+  font-size: clamp(1rem, 1vw, 1rem);
+  color: black;
+  text-align: left;
+}
+
+.postCard p {
+  font-family: 'Baskerville', serif;
+  font-size: clamp(1rem, 1vw, 1rem);
+  color: black;
+  text-align: left;
+}
+
+.postCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.postCard>p {
+  flex: 1;
+  color: #475569;
+}
+
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.unstyled {
+  color: inherit;
+  text-decoration: none;
+}
+
+article div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: -150px;
+}
+
+article div ul {
+  list-style-position: inside;
+}
+
+article {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #1e293b;
+}
+
+article h1, 
+article h2, 
+article h3 {
+  font-family: 'Comic Neue', cursive;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+@media (min-width: 640px) {
+  body {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .postsContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .postCard {
+    padding: 24px;
+  }
 }
