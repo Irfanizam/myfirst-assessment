@@ -8,6 +8,7 @@
 }
 
 body {
+  font-family: 'DM Serif Display', sans-serif;
   display: flex;
   flex-direction: column;
   padding: 14px;
@@ -30,7 +31,6 @@ header a {
 }
 
 header h1 {
-  font-family: 'DM Serif Display', serif;
   font-size: clamp(2rem, 5vw, 4rem);
   color: black;
   text-align: center;
@@ -71,14 +71,12 @@ main {
 
 .postCard h3,
 .postCard h5 {
-  font-family: 'Bad Script', cursive;
   font-size: clamp(1rem, 1vw, 1rem);
   color: black;
   text-align: left;
 }
 
 .postCard p {
-  font-family: 'Baskerville', serif;
   font-size: clamp(1rem, 1vw, 1rem);
   color: black;
   text-align: left;
@@ -120,7 +118,6 @@ article div ul {
 }
 
 article {
-  font-family: 'Comic Neue', cursive;
   font-size: 1.1rem;
   line-height: 1.6;
   color: #1e293b;
@@ -129,7 +126,6 @@ article {
 article h1, 
 article h2, 
 article h3 {
-  font-family: 'Comic Neue', cursive;
   font-weight: 700;
   color: #0f172a;
 }
