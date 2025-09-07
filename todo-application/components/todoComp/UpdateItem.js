@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import db from "../utils/fireStore";
+import db from "../../utils/fireStore";
 import { doc, updateDoc } from "@firebase/firestore";
 
 const UpdateItem = ({ id, currentName }) => {
@@ -10,7 +10,6 @@ const UpdateItem = ({ id, currentName }) => {
 
   const handleUpdate = async (event) => {
     event.preventDefault();
-
     try {
       const itemRef = doc(db, "items", id);
       await updateDoc(itemRef, { name: value });
@@ -21,32 +20,30 @@ const UpdateItem = ({ id, currentName }) => {
   };
 
   return (
-    <div className="flex">
+    <>
       {isEditing ? (
-        <form
-          onSubmit={handleUpdate}
-          className="flex items-center absolute w-screen h-screen top-0 left-0 bg-gray-900/70 p-4 flex flex-col items-center justify-center gap-2"
-        >
-          <div className="bg-white p-2 rounded-lg flex flex-col text-left gap-2">
-            <h2 className="text-xl font-semibold">
-                Update Item
-            </h2>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+          <form
+            onSubmit={handleUpdate}
+            className="bg-white p-6 rounded-lg shadow-lg w-120 flex flex-col gap-3"
+          >
+            <h2 className="text-lg font-bold">Update Item</h2>
             <input
               type="text"
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              className="border px-3 py-1 rounded mr-2 w-sm"
+              className="border px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
             />
-            <div className="flex gap-2">
+            <div className="flex justify-end gap-2">
               <button
                 type="submit"
-                className="px-2 py-1 bg-green-500 text-white rounded"
+                className="px-3 py-1 bg-green-500 text-white rounded cursor-pointer hover:bg-green-600 hover:scale-105 hover:shadow-md transition"
               >
                 Save
               </button>
               <button
                 type="button"
-                className="px-2 py-1 bg-gray-400 text-white rounded ml-1"
+                className="px-3 py-1 bg-gray-400 text-white rounded cursor-pointer hover:bg-gray-600 hover:scale-105 hover:shadow-md transition"
                 onClick={() => {
                   setValue(currentName);
                   setIsEditing(false);
@@ -55,17 +52,17 @@ const UpdateItem = ({ id, currentName }) => {
                 Cancel
               </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       ) : (
         <button
           onClick={() => setIsEditing(true)}
-          className="justify-center flex w-full px-2 py-1 bg-orange-500 text-white rounded"
+          className="px-3 py-1 bg-orange-500 text-white rounded cursor-pointer hover:bg-orange-600 hover:scale-105 hover:shadow-md transition"
         >
           Edit
         </button>
       )}
-    </div>
+    </>
   );
 };
 
