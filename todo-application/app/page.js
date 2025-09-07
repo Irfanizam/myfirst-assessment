@@ -6,18 +6,12 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        flexDirection: "column",
-      }}
-    >
-      <h1>To-Do List Firebase Firestore</h1>
-      <AddItem />
-      <ListItems/>
+    <div className="flex flex-col justify-center items-center h-screen">
+      <div>
+        <h1 className="text-xl font-semibold">To-Do List Firebase Firestore</h1>
+        <AddItem />
+        <ListItems />
+      </div>
     </div>
   );
 }

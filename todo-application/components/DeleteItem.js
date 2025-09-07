@@ -6,17 +6,15 @@ const DeleteItem = ({ id }) => {
     const itemRef = doc(db, "items", id);
     try {
       await deleteDoc(itemRef);
-      alert("Item has been deleted successfully!");
     } catch (error) {
       console.error("Error deleting document: ", error);
-      alert("Error deleting");
     }
   };
 
   return (
     <button
       onClick={handleDelete}
-      className="border bg-red-400 p-1 rounded text-white"
+      className="justify-center flex w-full px-2 py-1 bg-red-400 text-white rounded"
     >
       Delete
     </button>

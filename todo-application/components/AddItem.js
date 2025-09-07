@@ -20,15 +20,15 @@ const AddItem = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="my-4">
+    <form onSubmit={handleSubmit} className="my-4 flex gap-2">
       <input
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Add a new item"
-        className="border p-2 rounded-lg mr-4"
+        className="border p-2 rounded-lg w-full"
       />
-      <button type="submit">Add Item</button>
+      <button type="submit" className="text-nowrap justify-center items-center flex px-4 py-1 bg-blue-500 text-white rounded">Add Item</button>
     </form>
   );
 };
