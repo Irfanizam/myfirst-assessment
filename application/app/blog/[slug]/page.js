@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
-import db from "../../../utils/fireStore";
+import { db } from "../../../utils/fireStore";
 import { doc, getDoc } from "@firebase/firestore";
 
 export default function BlogSlug() {
